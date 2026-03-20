@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>무한 계단 오르기</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 시작 화면 -->
+        <div id="start-screen" class="screen">
+            <h1 class="bounce">무한 계단 오르기</h1>
+            <div class="character-select">
+                <p>캐릭터 선택</p>
+                <div class="chars">
+                    <div class="char-wrap active" data-char="blue"><div class="char blue"></div></div>
+                    <div class="char-wrap" data-char="red"><div class="char red"></div></div>
+                    <div class="char-wrap" data-char="green"><div class="char green"></div></div>
+                </div>
+            </div>
+
+            <div class="how-to-play">
+                <h3>🎮 게임 방법 🎮</h3>
+                <p>1. 화면 <b>좌/우</b>를 터치하여<br>계단이 이어진 방향대로 올라가세요.</p>
+                <p>2. 잘못된 방향을 누르거나<br><b>시간</b>이 다 되면 추락합니다!</p>
+                <p>3. <b>30점</b> 단위로 레벨이 오르며<br>점점 속도가 빨라집니다.</p>
+            </div>
+
+            <button id="start-btn">게임 시작</button>
+        </div>
+
+        <!-- 게임 화면 -->
+        <div id="game-screen" class="screen hidden">
+            <div class="ui-top">
+                <div class="stats">
+                    <span id="level-display" class="badge">Lv. 1</span>
+                    <span id="score-display">0</span>
+                </div>
+                <div class="timer-bar-bg">
+                    <div id="timer-bar"></div>
+                </div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+            
+            <!-- 터치 영역 (좌/우 방향) -->
+            <div class="touch-areas" id="touch-areas">
+                <div id="touch-left" class="touch-zone"><span>◀ 좌측</span></div>
+                <div id="touch-right" class="touch-zone"><span>우측 ▶</span></div>
+            </div>
+        </div>
+
+        <!-- 게임 오버 화면 -->
+        <div id="game-over-screen" class="screen hidden">
+            <h2>게임 오버!</h2>
+            <div class="result-box">
+                <p>최종 점수: <span id="final-score" class="highlight">0</span></p>
+                <p>도달 레벨: <span id="final-level" class="highlight">1</span></p>
+            </div>
+            <button id="restart-btn">다시 시작</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
