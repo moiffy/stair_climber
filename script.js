@@ -114,6 +114,9 @@ function initGame() {
     gameOverScreen.classList.add('hidden');
     gameScreen.classList.remove('hidden');
     
+    // 화면이 나타난 직후에 캔버스 크기를 다시 맞춰야 0이 되지 않습니다.
+    resizeCanvas();
+    
     isPlaying = true;
     lastTimeStr = performance.now();
     requestAnimationFrame(gameLoop);
@@ -190,7 +193,6 @@ window.addEventListener('keydown', (e) => {
 });
 
 btnStart.addEventListener('click', () => {
-    resizeCanvas();
     initGame();
 });
 
